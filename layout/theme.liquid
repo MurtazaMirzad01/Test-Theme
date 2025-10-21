@@ -14,7 +14,8 @@
   </head>
 
   <body>
-    {% render 'tutorial' %}
+    {% assign descriptionInUpperCase = 'mydescription' |  upcase %}
+    {% render 'tutorial', title: 'My Tutorial', description: descriptionInUpperCase %}
     {% sections 'header-group' %}
 
     {{ content_for_layout }}

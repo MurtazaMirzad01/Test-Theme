@@ -1,2 +1,49 @@
 {% assign myVar = 'Hello from Murtaza' %}
-{{myVar}}
+{{ myVar }}
+{{ 'shopify' | link_to: 'https://www.shopify.com' }}
+
+{{ 'icon-cart.svg' | inline_asset_content }}
+
+{{ 'collection-1' | placeholder_svg_tag }}
+
+{{ 'image' | placeholder_svg_tag: 'custom-class' }}
+
+{{ 'cart.js' | asset_url | script_tag }}{{ "apple apple" | replace: "apple", "orange" }}
+<!-- Output: orange orange -->
+
+{{ "apple apple" | replace_first: "apple", "orange" }}
+<!-- Output: orange apple -->
+<br>{{ "Hello" | append: " World" }}
+<!-- Output: Hello World -->
+
+{{ "World" | prepend: "Hello " }}
+<!-- Output: Hello World -->
+<br>
+{{ "hello%20world%21" | url_decode }}
+<!-- Output: hello%20world%21 -->
+<br>
+{{ "hello world!" | url_encode }}
+<!-- Output: hello%20world%21 -->
+<br>{{ "2025-10-21" | date: "%B %d, %Y" }}
+<!-- Output: October 21, 2025 -->
+
+{{ article.published_at | date: "%Y" }}
+<!-- Outputs the year of publication -->
+<br>
+{{ "now" | date: "%B %d, %Y" }}
+<!-- Outputs current year -->
+
+<script>
+  var product = {{ product | json }};
+  console.log(product);
+</script>
+<br>{{ product.featured_image | img_url: "500x" }}
+<!-- Output: https://cdn.shopify.com/.../500x.jpg -->
+
+{{ product.featured_image | img_tag: class: "product-image" }}
+<!-- Output: <img src="..." class="product-image" ...> -->
+<br>
+{{title}}
+<p>{{description}}</p>
+
+<p>{{collection.products.first |  json}}</p>
